@@ -14,6 +14,6 @@ public abstract class Solution {
         for (int n : input) {
             list.add(n);
         }
-        return list + " => Time taken: " + Math.abs(endTime - startTime) + " Nanoseconds.";
+        return list + "\n" + "Time taken: " + Math.abs(endTime - startTime) + " Nanoseconds.";
     }
 }
