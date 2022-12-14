@@ -1,18 +1,19 @@
 package Model;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Solution {
     public abstract int runSolution(int[] input);
 
     public String calculateRunTime(int[] input) {
-        Instant start = Instant.now();
+        List<Integer> list = new ArrayList<>();
+        long startTime = System.nanoTime();
         runSolution(input);
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-
-        return Arrays.asList(input) + " => Time taken: " + timeElapsed.toMillis() + " Milliseconds.";
+        long endTime = System.nanoTime();
+        for (int n : input) {
+            list.add(n);
+        }
+        return list + " => Time taken: " + Math.abs(endTime - startTime) + " Nanoseconds.";
     }
 }

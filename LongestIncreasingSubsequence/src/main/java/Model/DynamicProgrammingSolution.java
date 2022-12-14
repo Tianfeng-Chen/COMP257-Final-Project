@@ -21,6 +21,6 @@ public class DynamicProgrammingSolution extends Solution{
             dp[i] = Math.max(dp[i], max + 1);
             res = Math.max(res, dp[i]);
         }
-        return dp[len - 1];
+        return res;
     }
 }
