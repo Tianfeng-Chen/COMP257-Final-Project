@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Solution {
+    private String runTime = null;
+
     public abstract int runSolution(int[] input);
 
     public String calculateRunTime(int[] input) {
@@ -14,6 +16,6 @@ public abstract class Solution {
         for (int n : input) {
             list.add(n);
         }
-        return list + "\n" + "Time taken: " + Math.abs(endTime - startTime) + " Nanoseconds.";
+        return String.valueOf(Math.abs(endTime - startTime));
     }
 }
