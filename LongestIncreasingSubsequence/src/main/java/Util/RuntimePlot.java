@@ -3,64 +3,64 @@ package Util;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class RuntimePlot extends Application {
-    private List<String> yAxisValues1 = new ArrayList<>();
-    private List<String> yAxisValues2 = new ArrayList<>();
-    private List<String> yAxisValues3 = new ArrayList<>();
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Test Result Plot");
-        Axis xAxis = new NumberAxis();
-        Axis yAxis = new NumberAxis();
-        xAxis.setLabel("Test Case Size");
-        yAxis.setLabel("Runtime(nanoseconds)");
-        LineChart<String, Integer> lineChart = new LineChart<String, Integer>(xAxis, yAxis);
-        lineChart.setTitle("Test Case Runtime");
+        Axis xAxis1 = new NumberAxis();
+        Axis yAxis1 = new NumberAxis();
+        Axis xAxis2 = new NumberAxis();
+        Axis yAxis2 = new NumberAxis();
+        //LineChart lineChart1 = new LineChart(xAxis1, yAxis1);
+        LineChart lineChart2 = new LineChart(xAxis2, yAxis2);
         XYChart.Series series1 = new XYChart.Series();
         XYChart.Series series2 = new XYChart.Series();
         XYChart.Series series3 = new XYChart.Series();
+
+        xAxis1.setLabel("Test Case Size");
+        yAxis1.setLabel("Runtime(nanoseconds)");
+        xAxis2.setLabel("Test Case Size");
+        yAxis2.setLabel("Runtime(nanoseconds)");
+        //lineChart1.setTitle("Test Case Runtime");
+        lineChart2.setTitle("Test Case Runtime");
         series1.setName("BruteForce Solution");
         series2.setName("DynamicProgramming Solution");
         series3.setName("Greedy Solution");
 
-        List<Integer> preSetXValues = Arrays.asList(10, 25, 50, 75, 90);
-        for (int i = 0; i < preSetXValues.size(); i++) {
-            //series1.getData().add(new XYChart.Data(preSetXValues.get(i), yAxisValues1.get(i)));
-            series1.getData().add(new XYChart.Data(preSetXValues.get(i), i + 100));
-            //series2.getData().add(new XYChart.Data(preSetXValues.get(i), yAxisValues2.get(i)));
-            series2.getData().add(new XYChart.Data(preSetXValues.get(i), i + 100));
-            //series3.getData().add(new XYChart.Data(preSetXValues.get(i), yAxisValues3.get(i)));
-            series3.getData().add(new XYChart.Data(preSetXValues.get(i), i + 100));
-        }
+        series1.getData().add(new XYChart.Data(0, 0));
+        series1.getData().add(new XYChart.Data(10, 10100));
+        series1.getData().add(new XYChart.Data(15, 578400));
+        series1.getData().add(new XYChart.Data(20, 611000));
+        series1.getData().add(new XYChart.Data(25, 834900));
+        series1.getData().add(new XYChart.Data(30, 6741600));
 
-        Scene scene = new Scene(lineChart, 800, 600);
-        lineChart.getData().addAll(series1, series2, series3);
+        series2.getData().add(new XYChart.Data(0, 0));
+        series2.getData().add(new XYChart.Data(10, 4600));
+        series2.getData().add(new XYChart.Data(15, 8100));
+        series2.getData().add(new XYChart.Data(20, 8300));
+        series2.getData().add(new XYChart.Data(25, 10700));
+        series2.getData().add(new XYChart.Data(30, 27400));
 
+        series3.getData().add(new XYChart.Data(0, 0));
+        series3.getData().add(new XYChart.Data(10, 10200));
+        series3.getData().add(new XYChart.Data(15, 44800));
+        series3.getData().add(new XYChart.Data(20, 19400));
+        series3.getData().add(new XYChart.Data(25, 20000));
+        series3.getData().add(new XYChart.Data(30, 43100));
+
+
+        //lineChart1.getData().addAll(series1, series2, series3);
+        lineChart2.getData().addAll(series2, series3);
+
+        Scene scene = new Scene(lineChart2, 800, 600);
+        primaryStage.setTitle("TestCase Runtime Plot");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    public void addValueToYAxis(Type type, String value) {
-        switch (type) {
-            case BruteForce: yAxisValues1.add(value);
-            case DynamicProgramming: yAxisValues2.add(value);
-            case Greedy: yAxisValues3.add(value);
-        }
-    }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         launch(args);
-    }
-
-    public enum Type {
-        BruteForce,
-        DynamicProgramming,
-        Greedy
     }
 }
