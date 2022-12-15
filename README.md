@@ -10,7 +10,7 @@ to visualize the result as well.
 [Code Explanation](#Code-Explanation)
 
 ### Repo Instruction
-The necessary documents, including [*final project report*](COMP257-Final-Project/Document/COMP257 Final Project Report.pdf), [*result screenshots*](COMP257-Final-Project/Document/TestResult1.png), and [*runtime plot*](COMP257-Final-Project/Document/RunTimePlot1.png), are located
+The necessary documents, including [*final project report*](/Document/COMP257_Final_Project_Report.pdf), [*result screenshots*](/Document/TestResult1.png), and [*runtime plot*](/Document/RunTimePlot1.png), are located
 in [Document](COMP257-Final-Project/Document) folder.
 
 The source code is written in Java and the project is located in [LongestIncreasingSubsequence](COMP257-Final-Project/LongestIncreasingSubsequence) folder. In this folder, you can find all the source code under [src](COMP257-Final-Project/LongestIncreasingSubsequence/src) folder.
