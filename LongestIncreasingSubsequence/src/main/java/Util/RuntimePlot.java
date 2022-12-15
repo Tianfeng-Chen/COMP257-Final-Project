@@ -13,7 +13,7 @@ public class RuntimePlot extends Application {
         Axis yAxis1 = new NumberAxis();
         Axis xAxis2 = new NumberAxis();
         Axis yAxis2 = new NumberAxis();
-        //LineChart lineChart1 = new LineChart(xAxis1, yAxis1);
+        LineChart lineChart1 = new LineChart(xAxis1, yAxis1);
         LineChart lineChart2 = new LineChart(xAxis2, yAxis2);
         XYChart.Series series1 = new XYChart.Series();
         XYChart.Series series2 = new XYChart.Series();
@@ -23,7 +23,7 @@ public class RuntimePlot extends Application {
         yAxis1.setLabel("Runtime(nanoseconds)");
         xAxis2.setLabel("Test Case Size");
         yAxis2.setLabel("Runtime(nanoseconds)");
-        //lineChart1.setTitle("Test Case Runtime");
+        lineChart1.setTitle("Test Case Runtime");
         lineChart2.setTitle("Test Case Runtime");
         series1.setName("BruteForce Solution");
         series2.setName("DynamicProgramming Solution");
@@ -51,10 +51,10 @@ public class RuntimePlot extends Application {
         series3.getData().add(new XYChart.Data(30, 43100));
 
 
-        //lineChart1.getData().addAll(series1, series2, series3);
-        lineChart2.getData().addAll(series2, series3);
+        lineChart1.getData().addAll(series1, series2, series3);
+        //lineChart2.getData().addAll(series2, series3);
 
-        Scene scene = new Scene(lineChart2, 800, 600);
+        Scene scene = new Scene(lineChart1, 800, 600);
         primaryStage.setTitle("TestCase Runtime Plot");
         primaryStage.setScene(scene);
         primaryStage.show();
